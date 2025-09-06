@@ -3,13 +3,26 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { Trash2, Edit } from "lucide-react";
 import { deleteTask } from "../lib/task";
 import { Link } from "react-router-dom";
+import toast from "react-hot-toast";
 
 export default function TaskCard({ task }) {
   const queryClient = useQueryClient();
 
   const mutation = useMutation({
     mutationFn: (id) => deleteTask(id),
-    onSuccess: () => queryClient.invalidateQueries(["tasks"]),
+    onSuccess: () => {
+      queryClient.invalidateQueries(["tasks"]);
+      toast.success("Task deleted successfully!");
+    },
+    onError: (err) => {
+      if (err.response?.status === 403) {
+        toast.error("Not authorized to delete this task.");
+      } else if (err.response?.status === 404) {
+        toast.error("Task not found.");
+      } else {
+        toast.error("Failed to delete task.");
+      }
+    },
   });
 
   const handleDelete = () => {

@@ -21,7 +21,6 @@ export default function Register() {
     setLoading(true);
     try {
       const res = await register(form);
-      setUser(res.user || true);
       navigate("/login");
     } catch (err) {
       setError(err.response?.data?.message || "Login failed");

@@ -23,8 +23,10 @@ export default function Login() {
       const res = await login(form);
       console.log(res);
       setUser(res?.data?.email || null);
+       toast.success("Login successful!");
       navigate("/dashboard");
     } catch (err) {
+         toast.error(err.response?.data?.message || "Invalid credentials");
       setError(err.response?.data?.message || "Login failed");
     } finally {
       setLoading(false);

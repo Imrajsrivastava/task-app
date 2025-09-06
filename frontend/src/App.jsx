@@ -10,7 +10,7 @@ import Dashboard from "./pages/Dashboard";
 import NewTask from "./pages/NewTask";
 import Navbar from "./components/Navbar";
 import EditTask from "./pages/EditTask";
-
+import { Toaster } from "react-hot-toast";
 const queryClient = new QueryClient();
 
 function PrivateRoute({ children }) {
@@ -66,6 +66,7 @@ export default function App() {
       <AuthProvider>
         <BrowserRouter>
           <AppContent />
+           <Toaster position="top-right" reverseOrder={false} />
         </BrowserRouter>
       </AuthProvider>
     </QueryClientProvider>

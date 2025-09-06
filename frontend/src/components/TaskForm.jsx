@@ -1,42 +1,27 @@
-import { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import { fetchTask, createTask, updateTask } from "../lib/task";
 
-export default function TaskForm() {
+import { useState, useEffect } from "react";
+
+export default function TaskForm({ initialData, onSubmit }) {
   const [form, setForm] = useState({ title: "", description: "", status: "pending" });
-  const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
-  const { id } = useParams(); 
 
   useEffect(() => {
-    if (id) {
-      setLoading(true);
-      fetchTask(id).then((res) => {
-        setForm(res.data);
-        setLoading(false);
-      });
+    if (initialData) {
+      setForm(initialData);
     }
-  }, [id]);
+  }, [initialData]);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    if (id) {
-      await updateTask(id, form);
-    } else {
-      await createTask(form);
-    }
-    navigate("/dashboard");
+    onSubmit(form); 
   };
-
-  if (loading) return <p className="p-6">Loading task...</p>;
 
   return (
     <div className="p-6 max-w-md mx-auto bg-white shadow rounded-xl">
-      <h1 className="text-xl font-bold">{id ? "Update Task" : "Create Task"}</h1>
+      <h1 className="text-xl font-bold">{initialData ? "Update Task" : "Create Task"}</h1>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4 mt-4">
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">Title</label>
@@ -75,7 +60,7 @@ export default function TaskForm() {
         </div>
 
         <button className="bg-green-600 text-white py-2 rounded hover:bg-green-700 transition">
-          {id ? "Update Task" : "Create Task"}
+          {initialData ? "Update Task" : "Create Task"}
         </button>
       </form>
     </div>
