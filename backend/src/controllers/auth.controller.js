@@ -12,8 +12,8 @@ const setTokenCookie = (res, token) => {
 export const register = async (req, res) => {
   try {
     const { email, password } = req.body;
-    const { user, token } = await registerUser(email, password);
-    console.log("user singed up:", user);
+    const { user } = await registerUser(email, password);
+    console.log("user registered:", user);
     res.json({ msg: "User registered successfully" ,success: true});
   } catch (err) {
     res.status(400).json({ message: err.message });

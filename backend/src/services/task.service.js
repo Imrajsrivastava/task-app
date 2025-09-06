@@ -6,7 +6,6 @@ export const createTask = async (ownerId, data) => {
 };
 
 export const getTasks = async (ownerId, { page = 1, limit = 10, q = "", status = "all" }) => {
-    console.log("Fetching tasks for ownerId:", ownerId, "with params:", { page, limit, q, status });
   const skip = (page - 1) * limit;
   const filter = { };
 
