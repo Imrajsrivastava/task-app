@@ -82,7 +82,7 @@ cd task-app
 
 -----here----
 
-Final deployed link for Task Management App :::::=> https://task-frontend-k46pcnzwn-imrajsrivastavas-projects.vercel.app/login 
+Final deployed link for Task Management App :::::=> https://task-frontend-k46pcnzwn-imrajsrivastavas-projects.vercel.app/login ,https://task-frontend-sandy.vercel.app/dashboard
 
 -- combine repo for development ::#####. https://github.com/Imrajsrivastava/task-app
 
