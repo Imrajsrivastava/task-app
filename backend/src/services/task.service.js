@@ -6,6 +6,7 @@ export const createTask = async (ownerId, data) => {
 };
 
 export const getTasks = async (ownerId, { page = 1, limit = 10, q = "", status = "all" }) => {
+    console.log("Fetching tasks for ownerId:", ownerId, "with params:", { page, limit, q, status });
   const skip = (page - 1) * limit;
   const filter = { owner: ownerId };
 
@@ -15,6 +16,7 @@ export const getTasks = async (ownerId, { page = 1, limit = 10, q = "", status =
     { description: { $regex: q, $options: "i" } },
   ];
 
+  console.log("Filter applied:", filter);
   const [tasks, total] = await Promise.all([
     Task.find(filter).sort({ createdAt: -1 }).skip(skip).limit(Number(limit)),
     Task.countDocuments(filter),
@@ -30,7 +32,9 @@ export const getTaskById = async (id, ownerId) => {
 };
 
 export const updateTask = async (id, ownerId, updates) => {
+    console.log("Updating task id:", id, "for ownerId:", ownerId, "with updates:", updates);
   const task = await getTaskById(id, ownerId);
+  console.log("Updating task:", task);
   if (!task) return null;
 
   Object.assign(task, updates);

@@ -15,7 +15,7 @@ export const authMiddleware = async (req, res, next) => {
     req.user = await User.findById(decoded.id).select("-password");
 
     if (!req.user) return res.status(401).json({ message: "User not found" });
-
+     console.log("Authenticated user:", req.user);
     next();
   } catch (err) {
     return res.status(401).json({ message: "Token invalid" });
