@@ -84,7 +84,7 @@ Deployed Link : https://task-frontend-sandy.vercel.app/dashboard
 
 -----here----
 
-Final deployed link for Task Management App :::::=> https://task-frontend-sandy.vercel.app/dashboard ,https://task-frontend-sandy.vercel.app/dashboard
+Final deployed link for Task Management App :::::=> https://task-frontend-sandy.vercel.app/dashboard 
 
 -- combine repo for development ::#####. https://github.com/Imrajsrivastava/task-app
 
