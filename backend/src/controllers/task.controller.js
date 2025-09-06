@@ -30,14 +30,21 @@ export const getTaskCtrl = async (req, res) => {
   res.json(task);
 };
 
+
 export const updateTaskCtrl = async (req, res) => {
-  const task = await updateTask(req.params.id, req.user._id, req.body);
-  if (!task) return res.status(404).json({ message: "Not found" });
-  res.json(task);
+  const result = await updateTask(req.params.id, req.user._id, req.body);
+
+  if (result.notFound) return res.status(404).json({ message: "Task not found" });
+  if (result.notAuthorized) return res.status(403).json({ message: "Not authorized" });
+
+  res.json(result.task);
 };
 
 export const deleteTaskCtrl = async (req, res) => {
-  const success = await deleteTask(req.params.id, req.user._id);
-  if (!success) return res.status(404).json({ message: "Not found" });
+  const result = await deleteTask(req.params.id, req.user._id);
+
+  if (result.notFound) return res.status(404).json({ message: "Task not found" });
+  if (result.notAuthorized) return res.status(403).json({ message: "Not authorized" });
+
   res.json({ message: "Deleted" });
 };

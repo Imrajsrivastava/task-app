@@ -13,9 +13,8 @@ export const register = async (req, res) => {
   try {
     const { email, password } = req.body;
     const { user, token } = await registerUser(email, password);
-    setTokenCookie(res, token);
     console.log("user singed up:", user);
-    res.json({ id: user._id, email: user.email });
+    res.json({ msg: "User registered successfully" ,success: true});
   } catch (err) {
     res.status(400).json({ message: err.message });
   }
@@ -36,4 +35,11 @@ export const login = async (req, res) => {
 export const logout = (req, res) => {
   res.clearCookie("token");
   res.json({ message: "Logged out" });
+};
+
+export const checkAuth = (req, res) => {
+  if (!req.user) {
+    return res.status(401).json({ message: "Unauthorized" });
+  }
+  res.json({ id: req.user._id, email: req.user.email });
 };

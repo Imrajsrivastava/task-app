@@ -8,7 +8,8 @@ export const createTask = async (ownerId, data) => {
 export const getTasks = async (ownerId, { page = 1, limit = 10, q = "", status = "all" }) => {
     console.log("Fetching tasks for ownerId:", ownerId, "with params:", { page, limit, q, status });
   const skip = (page - 1) * limit;
-  const filter = { owner: ownerId };
+  const filter = { };
+
 
   if (status !== "all") filter.status = status;
   if (q) filter.$or = [
@@ -27,24 +28,32 @@ export const getTasks = async (ownerId, { page = 1, limit = 10, q = "", status =
 
 export const getTaskById = async (id, ownerId) => {
   const task = await Task.findById(id);
-  if (!task || task.owner.toString() !== ownerId.toString()) return null;
-  return task;
+  if (!task) return { notFound: true };
+  return task ;
+};
+
+export const getTaskBy = async (id, ownerId) => {
+  const task = await Task.findById(id);
+  if (!task) return { notFound: true };
+  if (task.owner.toString() !== ownerId.toString()) return { notAuthorized: true };
+  return {task} ;
 };
 
 export const updateTask = async (id, ownerId, updates) => {
-    console.log("Updating task id:", id, "for ownerId:", ownerId, "with updates:", updates);
-  const task = await getTaskById(id, ownerId);
-  console.log("Updating task:", task);
-  if (!task) return null;
+  const { task, notFound, notAuthorized } = await getTaskBy(id, ownerId);
+  if (notFound) return { notFound: true };
+  if (notAuthorized) return { notAuthorized: true };
 
   Object.assign(task, updates);
-  return await task.save();
+  await task.save();
+  return { task };
 };
 
 export const deleteTask = async (id, ownerId) => {
-  const task = await getTaskById(id, ownerId);
-  if (!task) return null;
+  const { task, notFound, notAuthorized } = await getTaskBy(id, ownerId);
+  if (notFound) return { notFound: true };
+  if (notAuthorized) return { notAuthorized: true };
 
   await task.deleteOne();
-  return true;
+  return { success: true };
 };
