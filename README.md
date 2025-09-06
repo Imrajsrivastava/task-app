@@ -66,7 +66,8 @@ http://localhost:5173
 
 ### 1️⃣ Clone the repository
 ```bash
-git clone https://github.com/Imrajsrivastava/task-app.git
+
+git clone https://github.com/Imrajsrivastava/task-app.git 
 cd task-app
 
 / Deployed Links**
@@ -79,7 +80,9 @@ cd task-app
 -- seprate repo for deployement :### https://github.com/Imrajsrivastava/task-backend
 
 
-Final deployed link for Task Management App : https://task-frontend-k46pcnzwn-imrajsrivastavas-projects.vercel.app/login 
+-----here----
+
+Final deployed link for Task Management App :::::=> https://task-frontend-k46pcnzwn-imrajsrivastavas-projects.vercel.app/login 
 
 -- combine repo for development ::#####. https://github.com/Imrajsrivastava/task-app
 
