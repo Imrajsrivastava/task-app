@@ -72,7 +72,7 @@ cd task-app
 
 / Deployed Links**
 
-Deployed Link : https://task-frontend-sandy.vercel.app/dashboard , https://task-frontend-k46pcnzwn-imrajsrivastavas-projects.vercel.app/ (try both if not working its vercel free resources down)
+Deployed Link : https://task-frontend-sandy.vercel.app/dashboard , https://task-frontend-k46pcnzwn-imrajsrivastavas-projects.vercel.app/ ,https://task-frontend-sandy.vercel.app/ (try all if not working its vercel free resources down so please go through the repo and run locally)
 
 - **Frontend (Vercel)**:  https://task-frontend-k46pcnzwn-imrajsrivastavas-projects.vercel.app/login 
  and -- seprate repo for deployement :### https://github.com/Imrajsrivastava/task-frontend
