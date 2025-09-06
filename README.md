@@ -72,6 +72,8 @@ cd task-app
 
 / Deployed Links**
 
+Deployed Link : https://task-frontend-sandy.vercel.app/dashboard
+
 - **Frontend (Vercel)**:  https://task-frontend-k46pcnzwn-imrajsrivastavas-projects.vercel.app/login 
  and -- seprate repo for deployement :### https://github.com/Imrajsrivastava/task-frontend
 
@@ -82,7 +84,7 @@ cd task-app
 
 -----here----
 
-Final deployed link for Task Management App :::::=> https://task-frontend-k46pcnzwn-imrajsrivastavas-projects.vercel.app/login ,https://task-frontend-sandy.vercel.app/dashboard
+Final deployed link for Task Management App :::::=> https://task-frontend-sandy.vercel.app/dashboard ,https://task-frontend-sandy.vercel.app/dashboard
 
 -- combine repo for development ::#####. https://github.com/Imrajsrivastava/task-app
 
