@@ -45,7 +45,7 @@ const redirectAddTask = () => {
         >
           <option value="all">All Status</option>
           <option value="pending">Pending</option>
-          <option value="done">Completed</option>
+          <option value="done">Done</option>
         </select>
       </div>
 

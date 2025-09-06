@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {  register } from "../lib/auth";
 import { useAuth } from "../hooks/useAuth";
+import toast from "react-hot-toast";
 
 export default function Register() {
   const navigate = useNavigate();
@@ -21,9 +22,12 @@ export default function Register() {
     setLoading(true);
     try {
       const res = await register(form);
+      toast.success("Registered successfully! Please login.");
       navigate("/login");
     } catch (err) {
-      setError(err.response?.data?.message || "Login failed");
+      const msg = err.response?.data?.message || "Registration failed";
+      setError(msg);
+      toast.error(msg);
     } finally {
       setLoading(false);
     }

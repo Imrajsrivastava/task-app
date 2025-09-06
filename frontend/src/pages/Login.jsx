@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { login } from "../lib/auth";
 import { useAuth } from "../hooks/useAuth";
-
+import toast from "react-hot-toast";
 export default function Login() {
   const navigate = useNavigate();
   const { setUser } = useAuth();

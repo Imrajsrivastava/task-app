@@ -55,7 +55,7 @@ export default function TaskForm({ initialData, onSubmit }) {
             className="border p-2 rounded w-full"
           >
             <option value="pending">Pending</option>
-            <option value="done">Completed</option>
+            <option value="done">Done</option>
           </select>
         </div>
 

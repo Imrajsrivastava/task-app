@@ -38,7 +38,7 @@ export default function TaskCard({ task }) {
         <p className="text-gray-600">{task.description}</p>
         <span
           className={`inline-block mt-2 px-2 py-1 text-xs rounded-full ${
-            task.status === "completed"
+            task.status === "done"
               ? "bg-green-100 text-green-700"
               : "bg-yellow-100 text-yellow-700"
           }`}
