@@ -69,4 +69,17 @@ http://localhost:5173
 git clone https://github.com/Imrajsrivastava/task-app.git
 cd task-app
 
+/ Deployed Links**
+
+- **Frontend (Vercel)**:  https://task-frontend-k46pcnzwn-imrajsrivastavas-projects.vercel.app/login 
+ and -- seprate repo for deployement :### https://github.com/Imrajsrivastava/task-frontend
+
+
+- **Backend (Render)**: https://task-backend-y77t.onrender.com/ 
+-- seprate repo for deployement :### https://github.com/Imrajsrivastava/task-backend
+
+
+Final deployed link for Task Management App : https://task-frontend-k46pcnzwn-imrajsrivastavas-projects.vercel.app/login 
+
+-- combine repo for development ::#####. https://github.com/Imrajsrivastava/task-app
 
