@@ -25,8 +25,9 @@ function AppContent() {
 
   return (
     <>
-      {user && <Navbar />} 
+      {user && <Navbar />}
       <Routes>
+        <Route path="/" element={<Navigate to="/dashboard" replace />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
 
@@ -38,15 +39,15 @@ function AppContent() {
             </PrivateRoute>
           }
         />
-        
+
         <Route
           path="/tasks/edit/:id"
           element={
             <PrivateRoute>
               <EditTask />
             </PrivateRoute>
-        }
-       />
+          }
+        />
         <Route
           path="/tasks/new"
           element={

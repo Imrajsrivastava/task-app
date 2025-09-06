@@ -31,20 +31,34 @@ export default function TaskCard({ task }) {
     }
   };
 
+
+  const formattedDate = new Date(task.createdAt).toLocaleString("en-IN", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+
   return (
-    <div className="p-4 border rounded-xl bg-white shadow-md hover:shadow-lg transition flex justify-between items-start">
-      <div>
+    <div className="p-4 border rounded-xl bg-white shadow-md hover:shadow-lg transition flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+      <div className="flex flex-col gap-1">
         <h2 className="font-bold text-lg text-gray-800">{task.title}</h2>
         <p className="text-gray-600">{task.description}</p>
-        <span
-          className={`inline-block mt-2 px-2 py-1 text-xs rounded-full ${
-            task.status === "done"
-              ? "bg-green-100 text-green-700"
-              : "bg-yellow-100 text-yellow-700"
-          }`}
-        >
-          {task.status}
-        </span>
+        <div className="flex items-center gap-2 mt-2">
+          <span
+            className={`inline-block px-2 py-1 text-xs rounded-full ${
+              task.status === "done"
+                ? "bg-green-100 text-green-700"
+                : "bg-yellow-100 text-yellow-700"
+            }`}
+          >
+            {task.status}
+          </span>
+          <span className="text-gray-500 text-xs">
+            Created: {formattedDate}
+          </span>
+        </div>
       </div>
 
       <div className="flex gap-3">
